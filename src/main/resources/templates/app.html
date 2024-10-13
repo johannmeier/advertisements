@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Advertisements manager</title>
+    <script src="https://unpkg.com/htmx.org@2.0.3/dist/htmx.js"
+            integrity="sha384-BBDmZzVt6vjz5YbQqZPtFZW82o8QotoM7RUp5xOxV3nSJ8u2pSdtzFAbGKzTlKtg"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css(v=1)}">
+</head>
+<body>
+<header>
+    <h1 class="text-xl">Advertisement Manager</h1>
+</header>
+<main class="w-3/4 flex flex-row justify-center shadow m-4" th:switch="${page}">
+    <th:block th:case="${'templates'}">
+        <div th:insert="~{fragments/templates}"></div>
+    </th:block>
+    <th:block th:case="*">
+        <div th:replace="~{fragments/edit}"></div>
+    </th:block>
+</main>
+<footer></footer>
+</body>
+
